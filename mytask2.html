@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>About Git&SVN</title>
+		<!-- Bootstrap core CSS -->
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+		<style>
+		*{
+		margin: 0;
+		padding: 0 3% 0 3%;
+		}
+		a {
+		color: #FEA500;
+		}
+		p{
+		margin-left:3%;
+		}
+		.grid {
+		float: left;
+		width: 30%;
+		padding: 30% 0 0 0;
+		margin: 0 3% 3% 0;
+		background:#FEA500;
+		border-radius: 15px;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="jumbotron">
+			<h1>关于Git和SVN</h1>
+			<p>*以下是这些天关于学习git和svn的一些小总结,
+			知识太多，没有全部看完，准备现学现用，会常常更新这个学习笔记。</p>
+		</div>
+		<div class="page-header">
+			<h1>GitHub</h1>
+		</div>
+		<p>
+			<a href="https://www.zhihu.com/question/20070065">github使用教程</a><br />
+			<div class="row">
+				<div class="col-sm-offset-1 col-sm-11">
+					非常详细易懂的教程，包括对github的趣味介绍，以及github desktop的基本使用方法介绍。
+				</div>
+			</div>
+		</p>
+		<hr />
+		<div class="page-header">
+			<h1>Git(Windows.ver)</h1>
+		</div>
+		<p>
+			<a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000">git教程</a><br />
+			<div class="row">
+				<div class="col-sm-offset-1 col-sm-11">
+					<span class="label label-primary">软件</span><br />
+					msysgit-是Windows版的Git<br />
+					<span class="label label-primary">创建版本库</span><br />首先，选择一个合适的地方，创建一个空目录：
+					<div class="well">
+						<p>
+							$ mkdir learngit<br />
+							$ cd learngit<br />
+							$ pwd<br />
+							/Users/xxx/learngit<br />
+							*pwd命令用于显示当前目录。这个仓库位于/Users/xxx/learngit。<br />
+						*使用Windows系统，为了避免遇到各种莫名其妙的问题，请确保目录名（包括父目录）不包含中文。</p>
+					</div><br />
+					第二步，通过git init命令把这个目录变成Git可以管理的仓库（不可随意手动修改）：
+					<div class="well">
+						<p>
+							$ git init<br />
+							Initialized empty Git repository in /Users/michael/xxx/.git/<br />
+							*如果你没有看到.git目录，那是因为这个目录默认是隐藏的，用ls -ah命令就可以看见。<br />
+						</p>
+					</div><br />
+					<span class="label label-primary">添加文件</span><br />
+					分为add和commit两个步骤<br />
+					<div class="well">
+						<p>
+							
+							$ git add file1.txt<br />
+							$ git add file2.txt file3.txt<br />
+							$ git commit -m "add 3 files."。<br />
+							*文件必须放在Git仓库目录下（子目录也行），放到其他地方Git再厉害也找不到这个文件。<br />
+						</p>
+					</div><br />
+					
+				</div>
+			</div>
+		</p>
+		<hr />
+		<div class="page-header">
+			<h1>SVN</h1>
+		</div>
+		<p>
+			<a href="http://www.cnblogs.com/armyfai/p/3985660.html">svn使用教程</a><br />
+			<div class="row">
+				<div class="col-sm-offset-1 col-sm-11">
+					<span class="label label-primary">软件</span><br />
+					VisualSVN Server-服务端<br />
+					Tortoise SVN-客户端<br />
+					<span class="label label-primary">服务端</span><br />
+					<div class="well">
+						<p>
+							
+							建立仓库<br />
+							建立用户和组，并且需要分配权限。<br />
+							<br />
+							
+						</p>
+					</div><br />
+					<span class="label label-primary">客户端</span><br />
+					<div class="well">
+						<p>
+							<div>
+								【添加文件到仓库】<br />
+								在test项目文件下，新建一个xx.txt文件，提交到版本库的方法如下2种：
+								1. 先提到变更列表中，再commit到配置库中，选择新增文件，右键SVN菜单执行“Add“操作提交到”变更列表中”，然后右键SVN菜单执行”SVN Commit”提交到版本库中。
+								2. 不提交到变更列表中，而是直接commit配置库中，选择该文件，右键svn菜单执行”SVN Commit”操作。<br />
+								<a href="images/1.png" target="view_window"><img src="images/1.png" width=300px></a>
+								<a href="images/2.png" target="view_window"><img src="images/2.png" width=300px></a>
+							</div>
+							<br />
+							<div>
+								【还原】<br />
+								右击想要回退的文件或者文件夹，在TortoiseSVN弹出菜单中选择”Update to reversion…” 然后会弹出一个窗口，如下：比如说我们要回退到第10个版本只需要在Revision中填写相应的版本号，然后点击ok即可。
+								<a href="images/3.png" target="view_window"><img src="images/3.png" width=300px></a>
+							</div>
+							<br />
+							<div>
+								【更新】<br />
+								更新本地代码与SVN服务器上最新的版本一致，只要在需要更新的文件夹上点击右键或者在文件下空白处点击右键，选择”SVN Update” (获取指定版本中的内容，点击右键执行SVN菜单中的“Update to reversion“)，就可以了。<br />
+								<a href="images/4.png" target="view_window"><img src="images/4.png" width=300px></a>
+							</div>
+							<br />
+							<div>
+								【改名】<br />
+								修改文件名，选中需要重命名的文件或文件夹，然后右键“TortoiseSVNRename“，在弹出的对话框中输入新名称，点击”ok”按钮，并将修改文件名后的文件或文件夹通过 “SVN Commit”提交到SVN服务器上。<br />
+								*会产生两个文件(源文件和更名后的文件)，要同时commit，否则会报错。
+							</div>
+							
+						</p>
+					</div><br />
+				</div>
+			</div>
+		</p>
+		<hr />
+		<div class="jumbotron">
+			<h2>总结</h2>
+			<p>SVN是集中式的版本控制系统，而Git是分布式版本控制系统。
+				集中式版本控制系统最大的毛病就是必须联网才能工作，而且每一步都要commit，要装载的软件比较多，个人感觉用户体验不太好。
+			和集中式版本控制系统相比，分布式版本控制系统的安全性要高很多， 不用联网，只需安装相应软件然后编写命令就可以传信息，每次修改完的信息会有特殊的标识，用户体验较好</p>
+			
+		</div>
+	</body>
